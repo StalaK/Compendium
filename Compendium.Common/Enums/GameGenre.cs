@@ -1,0 +1,32 @@
+﻿namespace Compendium.Common.Enums
+{
+    public enum GameGenre
+    {
+        Action,
+        ActionRPG,
+        Adventure,
+        Arcade,
+        BoardGame,
+        Fighting,
+        Fitness,
+        FPS,
+        Horror,
+        Idle,
+        JRPG,
+        Metroidvania,
+        MMORPG,
+        PartyGame,
+        PointAndClick,
+        Puzzle,
+        Racing,
+        RealTimeStrategy,
+        RogueLike,
+        RPG,
+        Simulation,
+        Sports,
+        Strategy,
+        TacticalRPG,
+        TurnBasedStrategy,
+        VisualNovel,
+    }
+}
