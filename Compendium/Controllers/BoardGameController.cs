@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Compendium.Common.Models;
+using Compendium.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Compendium.Controllers
@@ -7,32 +9,35 @@ namespace Compendium.Controllers
     [Route("[controller]/[action]")]
     public class BoardGameController : ControllerBase
     {
-        public BoardGameController()
+        private readonly IBoardGameService _boardGameService;
+
+        public BoardGameController(IBoardGameService boardGameService)
         {
+            _boardGameService = boardGameService;
         }
 
         [HttpGet]
-        public List<string> GetBoardGames()
+        public ActionResult<List<string>> GetBoardGames()
         {
-            return new List<string> { "Monopoly", "Ticket To Ride" };
+            return Ok(new List<string> { "Monopoly", "Ticket To Ride" });
         }
 
         [HttpGet]
-        public string GetBoardGame(int boardGameId)
+        public ActionResult GetBoardGame(int boardGameId)
         {
-            return "Monopoly";
+            return Ok("Monopoly");
         }
 
         [HttpPost]
-        public string PostAddBoardGame(string gameName)
+        public ActionResult PostAddBoardGame(NewBoardGameModel model)
         {
-            return $"{gameName} added";
+            return Ok($"{model.Title} added");
         }
 
         [HttpDelete]
-        public string DeleteBoardGame(int boardGameId)
+        public ActionResult DeleteBoardGame(int boardGameId)
         {
-            return $"{boardGameId} deleted";
+            return Ok($"{boardGameId} deleted");
         }
     }
 }

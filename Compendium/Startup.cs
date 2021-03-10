@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Compendium.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,10 @@ namespace Compendium
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IBoardGameService, BoardGameService>();
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<ILoanService, LoanService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

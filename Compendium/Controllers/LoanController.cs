@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Compendium.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Compendium.Controllers
@@ -7,8 +8,11 @@ namespace Compendium.Controllers
     [Route("[controller]/[action]")]
     public class LoanController : ControllerBase
     {
-        public LoanController()
+        private readonly ILoanService _loanService;
+
+        public LoanController(ILoanService loanService)
         {
+            _loanService = loanService;
         }
 
         [HttpPost]

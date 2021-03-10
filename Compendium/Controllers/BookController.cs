@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Compendium.Common.Models;
+using Compendium.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Compendium.Controllers
@@ -7,33 +9,35 @@ namespace Compendium.Controllers
     [Route("[controller]/[action]")]
     public class BookController : ControllerBase
     {
-        public BookController()
-        {
+        private readonly IBookService _bookService;
 
+        public BookController(IBookService bookService)
+        {
+            _bookService = bookService;
         }
         
         [HttpGet]
-        public List<string> GetBooks()
+        public ActionResult<List<string>> GetBooks()
         {
-            return new List<string> { "Book1", "Book2" };
+            return Ok(new List<string> { "Book1", "Book2" });
         }
 
         [HttpGet]
-        public string GetBook(int isbn)
+        public ActionResult<string> GetBook(int isbn)
         {
-            return $"ISBN: {isbn}";
+            return Ok($"ISBN: {isbn}");
         }
 
         [HttpPost]
-        public string AddBook(string isbn)
+        public ActionResult<string> AddBook(NewBookModel model)
         {
-            return $"Book {isbn} added!";
+            return Ok($"Book {model.Isbn} added!");
         }
 
         [HttpDelete]
-        public string DeleteBook(string isbn)
+        public ActionResult<string> DeleteBook(string isbn)
         {
-            return $"{isbn} deleted";
+            return Ok($"{isbn} deleted");
         }
     }
 }
