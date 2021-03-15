@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Compendium.Repository;
 using Compendium.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Compendium
@@ -27,10 +21,19 @@ namespace Compendium
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Register services
             services.AddScoped<IBoardGameService, BoardGameService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<ILoanService, LoanService>();
+
+            // Register repositories
+            services.AddScoped<IBoardGameRepository, BoardGameRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IGameRepository, GameRepository>();
+            services.AddScoped<ILoanedBoardGameRepository, LoanedBoardGameRepository>();
+            services.AddScoped<ILoanedBookRepository, LoanedBookRepository>();
+            services.AddScoped<ILoanedGameRepository, LoanedGameRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

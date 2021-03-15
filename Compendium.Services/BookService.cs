@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Compendium.Repository;
+
 namespace Compendium.Services
 {
     public class BookService : IBookService
     {
-        public BookService()
+        private readonly IBookRepository _bookRepository;
+
+        public BookService(IBookRepository bookRepository)
         {
+            _bookRepository = bookRepository;
         }
     }
 }

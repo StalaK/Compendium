@@ -1,5 +1,4 @@
-﻿
-using Compendium.Common.Enums;
+﻿using Compendium.Common.Enums;
 
 namespace Compendium.Common.Models
 {

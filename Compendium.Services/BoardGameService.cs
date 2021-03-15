@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Compendium.Repository;
+
 namespace Compendium.Services
 {
     public class BoardGameService : IBoardGameService
     {
-        public BoardGameService()
+        private readonly IBoardGameRepository _boardGameRepository;
+
+        public BoardGameService(IBoardGameRepository boardGameRepository)
         {
+            _boardGameRepository = boardGameRepository;
         }
     }
 }
