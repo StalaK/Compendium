@@ -1,4 +1,5 @@
-﻿using Compendium.Repository.Models;
+﻿using Compendium.Repository.Configurations;
+using Compendium.Repository.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Compendium.Repository
@@ -16,7 +17,19 @@ namespace Compendium.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            //options.UsePostgres 
+            //options.UsePostgres
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new BoardGameConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new GameConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanedBoardGameConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanedBookConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanedGameConfiguration());
+            modelBuilder.ApplyConfiguration(new PeopleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

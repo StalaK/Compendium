@@ -7,6 +7,7 @@ namespace Compendium.Repository.Models
         public string Isbn { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+        public string Publisher { get; set; }
         public BookGenre Genre { get; set; }
         public int Edition { get; set; }
         public string Pages { get; set; }
