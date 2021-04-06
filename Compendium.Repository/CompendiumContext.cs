@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Compendium.Repository
 {
-    public class CompendiumContext : DbContext
+    public class CompendiumContext : DbContext, ICompendiumContext
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Game> Games { get; set; }

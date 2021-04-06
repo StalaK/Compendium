@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using Compendium.Common.Models;
+
 namespace Compendium.Services
 {
-    public class IBoardGameService
+    public interface IBoardGameService
     {
-        public IBoardGameService()
-        {
-        }
+        List<BoardGameVm> GetBoardGames();
+        BoardGameVm GetBoardGame(int boardGameId);
+        void AddBoardGame(NewBoardGameModel model);
     }
 }

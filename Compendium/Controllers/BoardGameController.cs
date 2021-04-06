@@ -17,21 +17,25 @@ namespace Compendium.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<string>> GetBoardGames()
+        public ActionResult<List<BoardGameVm>> GetBoardGames()
         {
-            return Ok(new List<string> { "Monopoly", "Ticket To Ride" });
+            var boardGames = _boardGameService.GetBoardGames();
+
+            return Ok(boardGames);
         }
 
         [HttpGet]
-        public ActionResult GetBoardGame(int boardGameId)
+        public ActionResult<BoardGameVm> GetBoardGame([FromQuery] int boardGameId)
         {
-            return Ok("Monopoly");
+            var boardGame = _boardGameService.GetBoardGame(boardGameId);
+            return Ok(boardGame);
         }
 
         [HttpPost]
         public ActionResult PostAddBoardGame(NewBoardGameModel model)
         {
-            return Ok($"{model.Title} added");
+            _boardGameService.AddBoardGame(model);
+            return Created("/GetBoardGame", model);
         }
 
         [HttpDelete]

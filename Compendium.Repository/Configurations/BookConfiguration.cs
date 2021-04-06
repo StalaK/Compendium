@@ -46,6 +46,9 @@ namespace Compendium.Repository.Configurations
             builder.Property(p => p.DateUpdated)
                 .IsRequired(false)
                 .ValueGeneratedOnUpdate();
+
+            builder.Property(p => p.DateDeleted)
+                .IsRequired(false);
         }
     }
 }
