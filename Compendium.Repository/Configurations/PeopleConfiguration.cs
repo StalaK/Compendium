@@ -8,6 +8,15 @@ namespace Compendium.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<People> builder)
         {
+            builder.HasMany(e => e.LoanedBoardGames)
+                .WithOne();
+
+            builder.HasMany(e => e.LoanedBooks)
+                .WithOne();
+
+            builder.HasMany(e => e.LoanedGames)
+                .WithOne();
+
             builder.HasKey(k => k.Id);
 
             builder.Property(p => p.Id)

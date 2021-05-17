@@ -1,4 +1,5 @@
-﻿using Compendium.Common.Enums;
+﻿using System.Collections.Generic;
+using Compendium.Common.Enums;
 using Console = Compendium.Common.Enums.Console;
 
 namespace Compendium.Repository.Models
@@ -13,7 +14,6 @@ namespace Compendium.Repository.Models
         public Format Format { get; set; }
         public bool LocalMultiplayer { get; set; }
 
-        public int LoanedGameId { get; set; }
-        public LoanedGame LoanedGame { get; set; }
+        public List<LoanedGame> LoanedGame { get; set; }
     }
 }

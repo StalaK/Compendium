@@ -6,12 +6,11 @@ namespace Compendium.Repository.Configurations
 {
     public class BoardGameConfiguration : IEntityTypeConfiguration<BoardGame>
     {
-        public BoardGameConfiguration()
-        {
-        }
-
         public void Configure(EntityTypeBuilder<BoardGame> builder)
         {
+            builder.HasMany(e => e.LoanedBoardGame)
+                .WithOne();
+
             builder.HasKey(k => k.Id);
 
             builder.Property(p => p.Id)
@@ -33,10 +32,10 @@ namespace Compendium.Repository.Configurations
                 .IsRequired(false);
 
             builder.Property(p => p.MinNoOfPlayers)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(p => p.MaxNoOfPlayers)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(p => p.DateAdded)
                 .IsRequired(true)

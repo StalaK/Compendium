@@ -8,7 +8,7 @@ namespace Compendium.Repository.Models
         public DateTime? DateUpdated { get; set; }
         public DateTime? DateDeleted { get; set; }
 
-        public int UserId { get; set; }
+        public int UserAdded { get; set; }
         public User User { get; set; }
     }
 }

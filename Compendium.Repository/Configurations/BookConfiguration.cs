@@ -8,6 +8,9 @@ namespace Compendium.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Book> builder)
         {
+            builder.HasMany(e => e.LoanedBook)
+                .WithOne();
+
             builder.HasKey(k => k.Isbn);
 
             builder.Property(p => p.Isbn)

@@ -8,6 +8,9 @@ namespace Compendium.Repository.Configurations
     {       
         public void Configure(EntityTypeBuilder<Game> builder)
         {
+            builder.HasMany(e => e.LoanedGame)
+                .WithOne();
+
             builder.HasKey(k => k.Id);
 
             builder.Property(p => p.Id)
@@ -29,7 +32,7 @@ namespace Compendium.Repository.Configurations
                 .IsRequired(true);
 
             builder.Property(p => p.Format)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(p => p.LocalMultiplayer)
                 .IsRequired(true);

@@ -17,7 +17,7 @@ namespace Compendium.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            //options.UsePostgres
+            options.UseNpgsql("Host=localhost;Database=Compendium;Username=joshhughes;Password=");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

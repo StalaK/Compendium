@@ -1,4 +1,5 @@
-﻿using Compendium.Common.Enums;
+﻿using System.Collections.Generic;
+using Compendium.Common.Enums;
 
 namespace Compendium.Repository.Models
 {
@@ -9,11 +10,10 @@ namespace Compendium.Repository.Models
         public string Author { get; set; }
         public string Publisher { get; set; }
         public BookGenre Genre { get; set; }
-        public int Edition { get; set; }
+        public int? Edition { get; set; }
         public string Pages { get; set; }
         public Format Format { get; set; }
 
-        public string LoanedBookId { get; set; }
-        public LoanedBook LoanedBook { get; set; }
+        public List<LoanedBook> LoanedBook { get; set; }
     }
 }
