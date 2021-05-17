@@ -41,6 +41,7 @@ namespace Compendium.Controllers
         [HttpDelete]
         public ActionResult DeleteBoardGame(int boardGameId)
         {
+            _boardGameService.DeleteBoardGame(boardGameId);
             return Ok($"{boardGameId} deleted");
         }
     }

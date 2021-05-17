@@ -8,5 +8,6 @@ namespace Compendium.Services
         List<BoardGameVm> GetBoardGames();
         BoardGameVm GetBoardGame(int boardGameId);
         void AddBoardGame(NewBoardGameModel model);
+        void DeleteBoardGame(int boardGameId);
     }
 }

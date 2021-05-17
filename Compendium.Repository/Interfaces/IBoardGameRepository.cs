@@ -8,5 +8,6 @@ namespace Compendium.Repository
         IEnumerable<BoardGame> GetBoardGames();
         BoardGame GetBoardGame(int boardGameId);
         void AddBoardGame(BoardGame boardGame);
+        void DeleteBoardGame(int boardGameId);
     }
 }

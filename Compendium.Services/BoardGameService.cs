@@ -29,8 +29,8 @@ namespace Compendium.Services
                     Id = b.Id,
                     Name = b.Name,
                     Publisher = b.Publisher,
-                    MinGameLength = b.MinGameLength,
-                    MaxGameLength = b.MaxGameLength,
+                    MinGameLength = b.MinGameLength.GetValueOrDefault(0),
+                    MaxGameLength = b.MaxGameLength.GetValueOrDefault(0),
                     Genre = b.Genre
                 });
             });
@@ -47,8 +47,8 @@ namespace Compendium.Services
                 Id = boardGme.Id,
                 Name = boardGme.Name,
                 Publisher = boardGme.Publisher,
-                MinGameLength = boardGme.MinGameLength,
-                MaxGameLength = boardGme.MaxGameLength,
+                MinGameLength = boardGme.MinGameLength.GetValueOrDefault(0),
+                MaxGameLength = boardGme.MaxGameLength.GetValueOrDefault(0),
                 Genre = boardGme.Genre
             };
 
@@ -70,6 +70,11 @@ namespace Compendium.Services
             };
 
             _boardGameRepository.AddBoardGame(boardGame);
+        }
+
+        public void DeleteBoardGame(int boardGameId)
+        {
+            _boardGameRepository.DeleteBoardGame(boardGameId);
         }
     }
 }

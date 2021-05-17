@@ -2,8 +2,11 @@
 {
     public class LoanedGameRepository : ILoanedGameRepository
     {
-        public LoanedGameRepository()
+        private readonly ICompendiumContext _context;
+
+        public LoanedGameRepository(ICompendiumContext context)
         {
+            _context = context;
         }
     }
 }
