@@ -3,15 +3,17 @@ using System;
 using Compendium.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Compendium.Repository.Migrations
 {
     [DbContext(typeof(CompendiumContext))]
-    partial class CompendiumContextModelSnapshot : ModelSnapshot
+    [Migration("20210518195101_AddForeignKeyts")]
+    partial class AddForeignKeyts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -195,13 +197,6 @@ namespace Compendium.Repository.Migrations
                     b.Property<int?>("LenderId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("LoanDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("ReturnDate")
-                        .HasColumnType("timestamp without time zone");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BoardGameId");
@@ -224,13 +219,6 @@ namespace Compendium.Repository.Migrations
                     b.Property<int?>("LenderId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("LoanDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("ReturnDate")
-                        .HasColumnType("timestamp without time zone");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BookIsbn");
@@ -252,13 +240,6 @@ namespace Compendium.Repository.Migrations
 
                     b.Property<int?>("LenderId")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("LoanDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("ReturnDate")
-                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 

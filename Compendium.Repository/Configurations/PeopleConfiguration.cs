@@ -9,13 +9,13 @@ namespace Compendium.Repository.Configurations
         public void Configure(EntityTypeBuilder<People> builder)
         {
             builder.HasMany(e => e.LoanedBoardGames)
-                .WithOne();
+                .WithOne(e => e.Lender);
 
             builder.HasMany(e => e.LoanedBooks)
-                .WithOne();
+                .WithOne(e => e.Lender);
 
             builder.HasMany(e => e.LoanedGames)
-                .WithOne();
+                .WithOne(e => e.Lender);
 
             builder.HasKey(k => k.Id);
 

@@ -9,7 +9,7 @@ namespace Compendium.Repository.Configurations
         public void Configure(EntityTypeBuilder<BoardGame> builder)
         {
             builder.HasMany(e => e.LoanedBoardGame)
-                .WithOne();
+                .WithOne(e => e.BoardGame);
 
             builder.HasKey(k => k.Id);
 

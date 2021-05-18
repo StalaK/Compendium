@@ -9,7 +9,7 @@ namespace Compendium.Repository.Configurations
         public void Configure(EntityTypeBuilder<Book> builder)
         {
             builder.HasMany(e => e.LoanedBook)
-                .WithOne();
+                .WithOne(e => e.Book);
 
             builder.HasKey(k => k.Isbn);
 

@@ -13,6 +13,13 @@ namespace Compendium.Repository.Configurations
             builder.Property(p => p.Id)
                 .IsRequired(true)
                 .ValueGeneratedOnAdd();
+
+            builder.Property(p => p.LoanDate)
+                .IsRequired(true)
+                .ValueGeneratedOnAdd();
+
+            builder.Property(p => p.ReturnDate)
+                .IsRequired(false);
         }
     }
 }

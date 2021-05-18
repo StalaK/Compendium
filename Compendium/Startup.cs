@@ -40,6 +40,7 @@ namespace Compendium
             services.AddScoped<ILoanedBoardGameRepository, LoanedBoardGameRepository>();
             services.AddScoped<ILoanedBookRepository, LoanedBookRepository>();
             services.AddScoped<ILoanedGameRepository, LoanedGameRepository>();
+            services.AddScoped<IPeopleRepository, PeopleRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

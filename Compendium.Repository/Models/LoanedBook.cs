@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace Compendium.Repository.Models
+﻿namespace Compendium.Repository.Models
 {
-    public class LoanedBook
+    public class LoanedBook : LoanBase
     {
         public int Id { get; set; }
+
+        public Book Book { get; set; }
+
+        public People Lender { get; set; }
     }
 }
