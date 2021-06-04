@@ -1,10 +1,13 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using Compendium.Common.Models;
+
 namespace Compendium.Services
 {
-    public class IGameService
+    public interface IGameService
     {
-        public IGameService()
-        {
-        }
+        public List<GameVm> GetGames();
+        GameVm GetGame(int id);
+        void AddGame(NewGameModel model);
+        void DeleteGame(int id);
     }
 }

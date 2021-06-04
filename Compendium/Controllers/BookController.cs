@@ -17,26 +17,30 @@ namespace Compendium.Controllers
         }
         
         [HttpGet]
-        public ActionResult<List<string>> GetBooks()
+        public ActionResult<List<BookVm>> GetBooks()
         {
-            return Ok(new List<string> { "Book1", "Book2" });
+            var books = _bookService.GetBooks();
+            return Ok(books);
         }
 
         [HttpGet]
-        public ActionResult<string> GetBook(int isbn)
+        public ActionResult<BookVm> GetBook(string isbn)
         {
-            return Ok($"ISBN: {isbn}");
+            var book = _bookService.Getbook(isbn);
+            return Ok(book);
         }
 
         [HttpPost]
         public ActionResult<string> AddBook(NewBookModel model)
         {
-            return Ok($"Book {model.Isbn} added!");
+            _bookService.Addbook(model);
+            return Ok($"{model.Title} added!");
         }
 
         [HttpDelete]
         public ActionResult<string> DeleteBook(string isbn)
         {
+            _bookService.DeleteBook(isbn);
             return Ok($"{isbn} deleted");
         }
     }

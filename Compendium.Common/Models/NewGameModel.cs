@@ -13,5 +13,7 @@ namespace Compendium.Common.Models
         public GameGenre Genre { get; set; }
 
         public Format Format { get; set; }
+
+        public bool LocalMultiplayer { get; set; }
     }
 }

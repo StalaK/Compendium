@@ -17,26 +17,30 @@ namespace Compendium.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<string>> GetGames()
+        public ActionResult<List<GameVm>> GetGames()
         {
-            return Ok(new List<string> { "Mario", "Zelda" });
+            var games = _gameService.GetGames();
+            return Ok(games);
         }
 
         [HttpGet]
-        public ActionResult<string> GetGame(int gameId)
+        public ActionResult<GameVm> GetGame(int gameId)
         {
-            return Ok("Mario");
+            var game = _gameService.GetGame(gameId);
+            return Ok(game);
         }
 
         [HttpPost]
         public ActionResult<string> PostAddGame(NewGameModel model)
         {
-            return Ok(model.Title);
+            _gameService.AddGame(model);
+            return Ok($"{model.Title} added");
         }
 
         [HttpDelete]
         public ActionResult<string> DeleteGame(int gameId)
         {
+            _gameService.DeleteGame(gameId);
             return Ok($"{gameId} deleted");
         }
     }
