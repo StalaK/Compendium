@@ -22,10 +22,9 @@ namespace Compendium
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CompendiumContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("CompendiumContext")));
+            services.AddDbContext<CompendiumContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Compendium")));
 
-            services.AddSingleton<ICompendiumContext, CompendiumContext>();
+
 
             // Register services
             services.AddScoped<IBoardGameService, BoardGameService>();

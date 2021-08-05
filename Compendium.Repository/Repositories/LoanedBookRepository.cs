@@ -6,9 +6,9 @@ namespace Compendium.Repository
 {
     public class LoanedBookRepository : ILoanedBookRepository
     {
-        private readonly ICompendiumContext _context;
+        private readonly CompendiumContext _context;
 
-        public LoanedBookRepository(ICompendiumContext context)
+        public LoanedBookRepository(CompendiumContext context)
         {
             _context = context;
         }

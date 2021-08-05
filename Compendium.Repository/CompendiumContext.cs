@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Compendium.Repository
 {
-    public class CompendiumContext : DbContext, ICompendiumContext
+    public class CompendiumContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Game> Games { get; set; }
@@ -15,9 +15,8 @@ namespace Compendium.Repository
         public DbSet<User> Users { get; set; }
         public DbSet<People> People { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        public CompendiumContext(DbContextOptions<CompendiumContext> options) : base(options)
         {
-            options.UseNpgsql("Host=localhost;Database=Compendium;Username=joshhughes;Password=");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

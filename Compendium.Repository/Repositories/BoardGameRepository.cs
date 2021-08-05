@@ -7,9 +7,9 @@ namespace Compendium.Repository
 {
     public class BoardGameRepository : IBoardGameRepository
     {
-        private readonly ICompendiumContext _context;
+        private readonly CompendiumContext _context;
 
-        public BoardGameRepository(ICompendiumContext context)
+        public BoardGameRepository(CompendiumContext context)
         {
             _context = context;
         }
