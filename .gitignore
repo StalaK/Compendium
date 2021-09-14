@@ -405,4 +405,4 @@ ASALocalRun/
 .localhistory/
 
 # Personal appsettings file
-.appsettings.Development.json
+/Compendium/appsettings.Development.json
